@@ -18,7 +18,12 @@ async def on_ready():
 
 
 
-
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+    if message.content.startswith("Good Job Idiot"):
+        await message.channel.send("I think we both know who the idiot here is.")
     
 
 @client.event
