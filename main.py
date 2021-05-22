@@ -36,7 +36,7 @@ async def join(ctx):
         
         channel = ctx.message.author.voice.channel
         await channel.connect()
-        await ctx.send("I have joined the channel! What music would you like me to play?")
+       
     else:
         await ctx.send("You are not in a voice channel! You must be in a voice channel to run this command.")
     
