@@ -50,8 +50,8 @@ async def leave(ctx):
         await ctx.send("I am not in a voice channel.")
 
 @client.command(pass_context=True)
-async def nickcommand(ctx, member: discord.Member, nick):
-    await member.eit(nick=nick)
+async def nick(ctx, member: discord.Member, nick):
+    await member.edit(nick=nick)
     await ctx.send(f'Nickname was changed for {member.mention}')
     
 
