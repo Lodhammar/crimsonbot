@@ -3,6 +3,7 @@ from discord.ext import commands
 
 from dhooks import Webhook
 import requests
+import youtube_dl
 
 
 intents = discord.Intents.default()
@@ -18,13 +19,6 @@ async def on_ready():
 
 
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-    if message.content.startswith("Good Job Idiot"):
-        await message.channel.send("I think we both know who the idiot here is.")
-    
 
 @client.event
 async def on_member_join(member):
@@ -42,6 +36,7 @@ async def join(ctx):
         
         channel = ctx.message.author.voice.channel
         await channel.connect()
+        await ctx.send("I have joined the channel! What music would you like me to play?")
     else:
         await ctx.send("You are not in a voice channel! You must be in a voice channel to run this command.")
     
