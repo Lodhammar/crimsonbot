@@ -3,7 +3,7 @@ from discord.ext import commands
 
 from dhooks import Webhook
 import requests
-import youtube_dl
+
 
 
 intents = discord.Intents.default()
@@ -36,7 +36,6 @@ async def join(ctx):
         
         channel = ctx.message.author.voice.channel
         await channel.connect()
-       
     else:
         await ctx.send("You are not in a voice channel! You must be in a voice channel to run this command.")
     
