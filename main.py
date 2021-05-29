@@ -53,7 +53,8 @@ async def leave(ctx):
 async def nick(ctx, member: discord.Member, nick):
     await member.edit(nick=nick)
     await ctx.send(f'Nickname was changed for {member.mention}')
-    
+
+
 
 
 with open('token.txt', 'r', encoding='utf-8') as f:
