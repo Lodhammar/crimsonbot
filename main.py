@@ -20,12 +20,6 @@ async def on_ready():
 
 
 
-@client.event
-async def on_member_join(member):
-    guild = client.get_guild(837400158839898122)
-    channel = guild.get_channel(837400270324760597)
-    await channel.send(f'Welcome to the server {member.mention}!')
-    await member.send(f'Welcome to the {guild.name}, {member.name}!')
 
 
 
@@ -58,6 +52,14 @@ async def nick(ctx, member: discord.Member, nick):
 @client.command(pass_context=True)
 async def info(ctx):
     await ctx.send("This server is cringe")
+
+@client.event
+async def on_member_join(member):
+    guild = client.get_guild(837400158839898122)
+    channel = guild.get_channel(837400270324760597)
+    await channel.send(f'Welcome to the server {member.mention}!')
+    await member.send(f'Welcome to the {guild.name}, {member.name}!')
+
 
 with open('token.txt', 'r', encoding='utf-8') as f:
     token = f.read()
