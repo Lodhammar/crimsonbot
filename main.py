@@ -1,5 +1,4 @@
 import discord
-from discord.ext import commands
 
 from dhooks import Webhook
 import requests
@@ -8,7 +7,7 @@ import requests
 
 intents = discord.Intents.default()
 intents.members = True
-client = commands.Bot(command_prefix = '!', intents=intents)
+client = commands.Bot(intents=intents)
 
 
 @client.event
@@ -19,9 +18,17 @@ async def on_ready():
 
 
 
+@client.event
+async def on_member_join(member):
+    guild = client.get_guild(837400158839898122)
+    channel = guild.get_channel(837400270324760597)
+    await channel.send(f'Welcome to the server {member.mention}!')
+    await member.send(f'Welcome to the {guild.name}, {member.name}!')
 
 
 
+from discord.ext import commands
+client = commands.Bot(command_prefix = '!', intents=intents)
 
 @client.command(pass_context = True)
 async def join(ctx):
@@ -53,12 +60,6 @@ async def nick(ctx, member: discord.Member, nick):
 async def info(ctx):
     await ctx.send("This server is cringe")
 
-@client.event
-async def on_member_join(member):
-    guild = client.get_guild(837400158839898122)
-    channel = guild.get_channel(837400270324760597)
-    await channel.send(f'Welcome to the server {member.mention}!')
-    await member.send(f'Welcome to the {guild.name}, {member.name}!')
 
 
 with open('token.txt', 'r', encoding='utf-8') as f:
