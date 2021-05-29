@@ -3,18 +3,20 @@ import discord
 from dhooks import Webhook
 import requests
 
+from discord.ext import commands
 
 
 intents = discord.Intents.default()
 intents.members = True
-client = commands.Bot(intents=intents)
+client = commands.Bot(command_prefix = '!', intents=intents)
+
 
 
 @client.event
 async def on_ready():
     print("We have logged in as {0.user}"
     .format(client))
-
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Shrek"))
 
 
 
@@ -27,8 +29,7 @@ async def on_member_join(member):
 
 
 
-from discord.ext import commands
-client = commands.Bot(command_prefix = '!', intents=intents)
+
 
 @client.command(pass_context = True)
 async def join(ctx):
