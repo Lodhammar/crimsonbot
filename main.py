@@ -36,7 +36,7 @@ async def join(ctx):
         
         channel = ctx.message.author.voice.channel
         voice = await channel.connect()
-        source = FFmpegPCMAudio('heavenfalls.mp3')
+        source = FFmpegPCMAudio('C:\Users\seanl\Documents\pythonbot\heavenfalls.mp3')
         player = voice.play(source)
     else:
         await ctx.send("You are not in a voice channel! You must be in a voice channel to run this command.")
