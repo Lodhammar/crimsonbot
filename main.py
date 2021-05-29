@@ -31,16 +31,7 @@ async def on_member_join(member):
 
 
 
-@client.command(pass_context = True)
-async def join(ctx):
-    
-    if(ctx.author.voice):
-        
-        channel = ctx.message.author.voice.channel
-        voice = await channel.connect()
-     
-    else:
-        await ctx.send("You are not in a voice channel! You must be in a voice channel to run this command.")
+
     
 @client.command(pass_context = True)
 async def play(ctx, url:str):
