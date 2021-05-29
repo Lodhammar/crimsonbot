@@ -1,10 +1,8 @@
 import discord
+from discord import FFmpegPCMAudio
 from dhooks import Webhook
 import requests
 from discord.ext import commands
-from discord import FFmpegPCMAudio
-import youtube_dl
-import os
 
 
 intents = discord.Intents.default()
@@ -31,37 +29,19 @@ async def on_member_join(member):
 
 
 
-
-    
 @client.command(pass_context = True)
-async def play(ctx, url:str):
+async def join(ctx):
     
     if(ctx.author.voice):
         
         channel = ctx.message.author.voice.channel
         voice = await channel.connect()
-
-        ydl_opts = {
-            'format':'bestaudio/best',
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'prefferedcodec':'mp3',
-                'preferredquality':'192',
-            }],
-        }
-
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            ydl.download([url])
-        for file in os.listdir("./"):
-            if file.endswith(".mp3"):
-                os.rename(file, "song.mp3")
-        
-        source = FFmpegPCMAudio('song.mp3')
+        source = FFmpegPCMAudio('heavenfalls.mp3')
         player = voice.play(source)
-  
     else:
         await ctx.send("You are not in a voice channel! You must be in a voice channel to run this command.")
     
+
 
 @client.command(pass_context = True)
 async def leave(ctx):
