@@ -30,7 +30,6 @@ async def on_member_join(member):
 
 
 
-
 @client.command(pass_context = True)
 async def join(ctx):
     
@@ -60,6 +59,7 @@ async def nick(ctx, member: discord.Member, nick):
 @client.command(pass_context=True)
 async def info(ctx):
     await ctx.send("This server is cringe")
+
 
 
 
