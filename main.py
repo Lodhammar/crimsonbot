@@ -1,8 +1,7 @@
 import discord
-
+from discord import FFmpegPCMAudio
 from dhooks import Webhook
 import requests
-
 from discord.ext import commands
 
 
@@ -36,7 +35,9 @@ async def join(ctx):
     if(ctx.author.voice):
         
         channel = ctx.message.author.voice.channel
-        await channel.connect()
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('heavenfalls.mp3')
+        player = voice.play(source)
     else:
         await ctx.send("You are not in a voice channel! You must be in a voice channel to run this command.")
     
