@@ -55,7 +55,9 @@ async def nick(ctx, member: discord.Member, nick):
     await ctx.send(f'Nickname was changed for {member.mention}')
 
 
-
+@client.command(pass_context=True)
+async def info(ctx):
+    await ctx.send("This server is cringe")
 
 with open('token.txt', 'r', encoding='utf-8') as f:
     token = f.read()
