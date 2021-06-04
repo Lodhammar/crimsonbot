@@ -59,9 +59,7 @@ async def nick(ctx, member: discord.Member, nick):
 
 @client.command(pass_context=True)
 async def info(ctx):
-    await ctx.send("This server is cringe")
-
-
+    await ctx.send("You can communicate with people on the server and talk with them in voicechat.")
 
 
 with open('token.txt', 'r', encoding='utf-8') as f:
