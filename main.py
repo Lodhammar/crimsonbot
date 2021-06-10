@@ -10,7 +10,7 @@ import os
 intents = discord.Intents.default()
 intents.members = True
 client = commands.Bot(command_prefix = '!', intents=intents)
-os.chdir(r'C:\Users\seanl\Documents\pythonbot')
+
 
 
 
