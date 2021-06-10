@@ -29,10 +29,11 @@ async def on_member_join(member):
     await member.send(f'Welcome to the {guild.name}, {member.name}!')
 
 @client.event
-async def on_message(ctx, userName: discord.User):
-    if ctx.content.startswith('I hate white people'):
-        await ctx.delete(ctx)
-
+async def on_message(message):
+    if message.author == client.user:
+        return
+    if message.content.startswith('I hate all races'):
+        await message.delete()
 
 
 @client.command(pass_context = True)
