@@ -31,7 +31,7 @@ async def on_member_join(member):
 @client.event
 async def on_message(ctx, userName: discord.User):
     if ctx.content.startswith('I hate white people'):
-        await message.delete(ctx)
+        await ctx.delete(ctx)
 
 
 
