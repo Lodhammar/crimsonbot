@@ -28,12 +28,6 @@ async def on_member_join(member):
     await channel.send(f'Welcome to the server {member.mention}!')
     await member.send(f'Welcome to the {guild.name}, {member.name}!')
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-    if message.content.startswith('I hate all races'):
-        await message.delete()
 
 
 @client.command(pass_context = True)
