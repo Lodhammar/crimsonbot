@@ -15,16 +15,14 @@ client = commands.Bot(command_prefix = '!', intents=intents)
 
 
 @client.event
-async def on_ready():
+async def on_ready(ctx):
     print("We have logged in as {0.user}"
     .format(client))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Sean being stupid"))
-
-    async def embed(ctx):
-        guild = client.get_guild(837400158839898122)
-        channel = guild.get_channel(855487235608019015)
-        embed=discord.Embed(title="Crimson Server Details:", description="Version: 1.16.5 \n test", color=#ffcccb)
-        await ctx.send(embed=embed)
+    guild = client.get_guild(837400158839898122)
+    channel = guild.get_channel(855487235608019015)
+    embed=discord.Embed(title="Crimson Server Details:", description="Version: 1.16.5 \n test", color="#ffcccb")
+    await ctx.send(embed=embed)
 
 
 @client.event
