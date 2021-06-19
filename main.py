@@ -5,7 +5,7 @@ import requests
 from discord.ext import commands
 import json
 import os
-from discord_components import *
+
 
 
 intents = discord.Intents.default()
