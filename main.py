@@ -38,7 +38,7 @@ async def button(ctx):
            Button(label = 'Click me')
        ]
     )
-    interaction = await client.wait_for("button_click", check=lambda i: i.components.label.startswith("Click"))
+    interaction = await client.wait_for("button_click", check=lambda i: i.component.label.startswith("Click"))
     await interaction.respond(content="Button Clicked")
     
 
