@@ -20,7 +20,7 @@ async def on_ready(ctx):
     print("We have logged in as {0.user}"
     .format(client))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Sean being stupid"))
-    DiscordComponents(client)
+  
 
 
 @client.event
@@ -30,16 +30,7 @@ async def on_member_join(member):
     await channel.send(f'Welcome to the server {member.mention}!')
     await member.send(f'Welcome to the {guild.name}, {member.name}!')
 
-@client.command()
-async def button(ctx):
-    await ctx.send(
-       "This is a button",
-       components = [
-           Button(label = 'Click me')
-       ]
-    )
-    interaction = await client.wait_for("button_click", check=lambda i: i.component.label.startswith("Click"))
-    await interaction.respond(content="Button Clicked")
+
     
 
 @client.command(pass_context = True)
