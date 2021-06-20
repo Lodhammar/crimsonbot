@@ -83,7 +83,7 @@ async def button(ctx):
             Button(label = 3),
             Button(label = 2),
             Button(label = 1),
-            Button(label = 0)
+            Button(label = 0),
         ]
     )
 
