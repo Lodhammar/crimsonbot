@@ -51,4 +51,4 @@ virtualenv==20.4.4
 webencodings==0.5.1
 wrapt==1.12.1
 yarl==1.6.3
-discord-components==2.0
+discord-components
