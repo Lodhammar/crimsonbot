@@ -19,7 +19,7 @@ client = commands.Bot(command_prefix = '!', intents=intents)
 async def on_ready():
     print("We have logged in as {0.user}"
     .format(client))
-    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Sean being stupid"))
+    await client.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Minecraft Story Mode on Netflix"))
     DiscordComponents(client)
 
 
@@ -75,15 +75,7 @@ async def button(ctx):
         "Calculator",
         components = [
             Button(label = 9),
-            Button(label = 8),
-            Button(label = 7),
-            Button(label = 6),
-            Button(label = 5),
-            Button(label = 4),
-            Button(label = 3),
-            Button(label = 2),
-            Button(label = 1),
-            Button(label = 0),
+            Button(label = "pogger")
         ]
     )
 
