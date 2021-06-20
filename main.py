@@ -5,7 +5,7 @@ import requests
 from discord.ext import commands
 import json
 import os
-
+from discord_components import DiscordComponents, Button
 
 
 intents = discord.Intents.default()
@@ -20,7 +20,7 @@ async def on_ready(ctx):
     print("We have logged in as {0.user}"
     .format(client))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Sean being stupid"))
-  
+    DiscordComponents(client)
 
 
 @client.event
@@ -66,7 +66,17 @@ async def info(ctx):
     await ctx.send("You can communicate with people on the server and talk with them in voicechat.")
 
 
+@client.command()
+async def button(ctx):
+    await ctx.send(
+        "Hello World",
+        components = [
+            Button(label = "Click Me!")
+        ]
+    )
 
+    interaction = await bot.wait_for("button_click", check = lambda i: i.component.label.startswith("Epic"))
+    await interaction.respond(content = "Da button was da clicked")
 
 with open('token.txt', 'r', encoding='utf-8') as f:
     token = f.read()
