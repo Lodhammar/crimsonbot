@@ -16,7 +16,7 @@ client = commands.Bot(command_prefix = '!', intents=intents)
 
 
 @client.event
-async def on_ready(ctx):
+async def on_ready():
     print("We have logged in as {0.user}"
     .format(client))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Sean being stupid"))
@@ -69,12 +69,13 @@ async def info(ctx):
 async def test(ctx):
     await ctx.send("Test")
 
-@client.command(pass_context=True)
+@client.command(aliases=['t'])
 async def button(ctx):
     await ctx.send(
-        "Hello World",
+        "Calculator",
         components = [
-            Button(label = "Click Me!")
+            Button(label = 9)
+          
         ]
     )
 
