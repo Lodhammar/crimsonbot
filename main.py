@@ -65,6 +65,9 @@ async def nick(ctx, member: discord.Member, nick):
 async def info(ctx):
     await ctx.send("You can communicate with people on the server and talk with them in voicechat.")
 
+@client.command(pass_context=True)
+async def test(ctx):
+    await ctx.send("Test")
 
 @client.command(pass_context=True)
 async def button(ctx):
