@@ -80,7 +80,7 @@ async def button(ctx):
     )
 
     interaction = await client.wait_for("button_click", check = lambda i: i.components.label.startswith("Epic"))
-    await interaction.respond(content = "Da button was da clicked")
+    await interaction.respond(content = "Button Clicked")
 
 with open('token.txt', 'r', encoding='utf-8') as f:
     token = f.read()
