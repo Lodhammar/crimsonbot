@@ -51,5 +51,4 @@ virtualenv==20.4.4
 webencodings==0.5.1
 wrapt==1.12.1
 yarl==1.6.3
-git+https://github.com/Rapptz/discord.py
-ffmpeg
+discord-components==2.0

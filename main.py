@@ -66,7 +66,7 @@ async def info(ctx):
     await ctx.send("You can communicate with people on the server and talk with them in voicechat.")
 
 
-@client.command()
+@client.command(pass_context=True)
 async def button(ctx):
     await ctx.send(
         "Hello World",
@@ -75,7 +75,7 @@ async def button(ctx):
         ]
     )
 
-    interaction = await bot.wait_for("button_click", check = lambda i: i.component.label.startswith("Epic"))
+    interaction = await client.wait_for("button_click", check = lambda i: i.component.label.startswith("Epic"))
     await interaction.respond(content = "Da button was da clicked")
 
 with open('token.txt', 'r', encoding='utf-8') as f:
